@@ -11,7 +11,7 @@ namespace MvcMovie
         {
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddDbContext<MvcMovieContext>(options =>
-                options.UseNpgsql(builder.Configuration.GetConnectionString("AZURE_POSTGRESQL_CONNECTIONSTRING") ?? throw new InvalidOperationException("Connection string 'MvcMovieContext' not found.")));
+                options.UseNpgsql(builder.Configuration.GetConnectionString("AZURE_POSTGRESQL_CONNECTIONSTRING") ?? throw new InvalidOperationException("Connection string not found.")));
             builder.Services.AddStackExchangeRedisCache(options =>
             {
                 options.Configuration = builder.Configuration["AZURE_REDIS_CONNECTIONSTRING"];

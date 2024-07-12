@@ -12,9 +12,14 @@ public class Movie
     [Required]
     public string? Title { get; set; }
 
+    private DateTime _ReleaseDate;
     [Display(Name = "Release Date")]
     [DataType(DataType.Date)]
-    public DateTime ReleaseDate { get; set; }
+    public DateTime ReleaseDate
+    {
+        get { return _ReleaseDate; }
+        set { _ReleaseDate = DateTime.SpecifyKind(value, DateTimeKind.Utc); }
+    }
 
     [RegularExpression(@"^[A-Z]+[a-zA-Z\s]*$")]
     [Required]

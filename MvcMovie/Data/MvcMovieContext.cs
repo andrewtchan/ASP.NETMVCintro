@@ -9,11 +9,13 @@ namespace MvcMovie.Data
 {
     public class MvcMovieContext : DbContext
     {
+        public MvcMovieContext() { }
+
         public MvcMovieContext (DbContextOptions<MvcMovieContext> options)
             : base(options)
         {
         }
 
-        public DbSet<MvcMovie.Models.Movie> Movie { get; set; } = default!;
+        public virtual DbSet<MvcMovie.Models.Movie> Movie { get; set; } = default!;
     }
 }
